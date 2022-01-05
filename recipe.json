@@ -1,0 +1,126 @@
+recipe = {
+    "id": "Named_Entity_Recognition",
+    "steps": {
+        "step": {
+            "id": "data_loading",
+            "description": "Compile the unlabelled dataset & prepare the dataset in weav standard json format",
+            "executor": "execution target",
+            "parent_step_id": ""
+
+            "sub-steps": {
+		"id": "prepare_std_data",
+		"description": "Compile the unlabelled dataset & prepare the dataset in weav standard json format",
+		"executor": "execution target",
+		"parent_step_id": ""	
+			}
+            "sub-steps": {
+		"id": "compile_data_unlabelled",
+		"description": "Compile a given dataset (health tweets) (unlabelled) (this is defunct for now)",
+		"executor": "execution target",
+		"parent_step_id": ""	
+			}
+        },
+
+        "step": {
+            "id": "data_exploration",
+            "description": "Explore the dataset with stats and visuals",
+            "executor": "execution target",
+            "parent_step_id": "data_loading"
+
+            "sub-steps": {
+		"id": "get_frequency_entities",
+		"description": "Display the frequency of categorical entities in dataset",
+		"executor": "execution target",
+		"parent_step_id": ""	
+			}
+            "sub-steps": {
+		"id": "display_freq_distribution",
+		"description": "Display the graph of categorical entities",
+		"executor": "execution target",
+		"parent_step_id": "get_frequency_entities"	
+			}
+            "sub-steps": {
+		"id": "get_top_entities",
+		"description": "Display top k entities per user choice for category with counts ",
+		"executor": "execution target",
+		"parent_step_id": "get_frequency_entities"	
+			}
+            "sub-steps": {
+		"id": "display_top_entities",
+		"description": 'Display top entities of chosen category",
+		"executor": "execution target",
+		"parent_step_id": "get_top_entities"	
+			}
+            "sub-steps": {
+		"id": "get_word_distribution",
+		"description": "Display word distribution in dataset",
+		"executor": "execution target",
+		"parent_step_id": "display_top_entities"	
+			}
+            "sub-steps": {
+		"id": "choose_entity",
+		"description":" Choose the entity to work with ",
+		"executor": "execution target",
+		"parent_step_id": "get_word_distribution"	
+			}
+        },
+
+        "step": {
+            "id": "data_preprocessing",
+            "description": "Preprocess the dataset",
+            "executor": "execution target",
+            "parent_step_id": "data_exploration"
+
+            "sub-steps": {
+		"id": "lemmatization",
+		"description": "Use lemmatization to reduce the words to their lemma",
+		"executor": "execution target",
+		"parent_step_id": ""	
+			}
+            "sub-steps": {
+		"id": "stemming",
+		"description": "Use stemming to get to the root of the words/tokens",
+		"executor": "execution target",
+		"parent_step_id": "lemmatization"	
+			}
+            "sub-steps": {
+		"id": "case_normalization",
+		"description": "Use case normalization as per user choice",
+		"executor": "execution target",
+		"parent_step_id": "stemming"	
+			}
+            "sub-steps": {
+		"id": "remove_stopwords",
+		"description": "Remove stopwords from the tokens in the dataset",
+		"executor": "execution target",
+		"parent_step_id": "case_normalization"	
+			}
+            "sub-steps": {
+		"id": "remove_punctuations",
+		"description": "To remove punctuations from the text chunks",
+		"executor": "execution target",
+		"parent_step_id": "remove_stopwords"	
+			}
+            "sub-steps": {
+		"id": "remove_misc",
+		"description":"To remove miscellaneous characters from the text chunks as user choice",
+		"executor": "execution target",
+		"parent_step_id": "remove_punctuations"	
+			}
+            "sub-steps": {
+		"id": "use_regex",
+		"description":"To use custom regex function to either substitute or remove from text",
+		"executor": "execution target",
+		"parent_step_id": "remove_misc"	
+			}
+        },
+
+        "step": {
+            "id": "model_training",
+            "description": "Train the NER model",
+            "executor": "execution target",
+            "parent_step_id": "data_preprocessing"
+        },
+
+    }
+}

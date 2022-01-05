@@ -1,0 +1,30 @@
+{
+    "input_parametrs": [
+      {
+        "param": "loc_input",
+        "param_type": "str",
+        "default_values": "./datasets/mit_movie_sample.txt"
+      },
+      {
+        "param": "loc_output",
+        "param_type": "str",
+        "default_values": "./datasets"
+      },
+      {
+        "param": "language",
+        "param_type": "string",
+        "default_values": "en"
+      },
+      {
+        "param": "dataset_type",
+        "param_type": "str",
+        "default_values": "ner"
+      },
+      {
+        "param": "dataset_id",
+        "param_type": "int",
+        "default_values": 1
+      }
+
+    ]
+  }

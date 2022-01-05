@@ -1,0 +1,59 @@
+#General config for data exploration :
+
+
+Recipe : get_frequency_entities
+
+Function : frequency_entities
+Arguments:
+loc='./datasets'
+dataset_id=1
+ret=False
+
+
+Recipe : display_freq_distribution
+
+Function: frequency_distribution
+Arguments:
+loc='./datasets'
+dataset_id=1
+
+
+Recipe : get_top_entities
+
+Function: top_entities
+Arguments:
+k = 5
+category = 'ACTOR'
+loc='./datasets/'
+dataset_id=1
+
+
+Recipe : display_top_entities
+
+Function : display_top_entities
+Arguments:
+k = 5
+category = 'ACTOR'
+loc='./datasets/'
+dataset_id=1
+
+
+Recipe : get_word_distribution
+
+Function : word_distribution
+Arguments:
+loc='./datasets/'
+dataset_id=1
+
+
+Recipe : choose_entity
+
+Function : choose_entity
+Arguments:
+entity_list = ['ACTOR', 'GENRE']
+loc='./datasets/'
+dataset_id=1
+loc_output='./datasets/'
+
+
+

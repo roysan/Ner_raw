@@ -1,0 +1,66 @@
+#General config for model training setup
+
+
+Module : split_dataset_training
+Arguments:
+ds = <Loaded dataset>
+dev_size = 0.2
+test_size = 0.2
+
+
+Module : convert_to_spacy_binary_format
+Arguments:
+input_file = './dataset/temp_dataset'
+output_dir = './dataset'
+converter = 'iob'
+n_sents = None
+seg_sents = None
+
+
+Module : set_config
+Arguments:
+output_file = './config_files/test_config.cfg'
+optimize = 'accuracy'
+gpu = ''
+
+
+Module : fill_config
+Arguments:
+output_file = './config_files/fill_test_config.cfg'
+base_path = './config_files/test_config.cfg'
+
+
+Module : choose_config
+Arguments:
+encode = 'HashEmbedCnn'
+embed = 'MaxoutWindowEncoder'
+output_file = './config_files/chosen_config.cfg'
+
+
+Module : get_pretrained_vectors #(subject to change)
+Arguments:
+vectors_loc =
+name = 
+output_dir = 
+
+
+Module : train
+Arguments:
+config_path = ./config_files/test_config.cfg'
+output_path = './output_spacy'
+gpu_id = '-1'
+train_path = './datasets/train_spacy_sample.spacy'
+dev_path = './datasets/dev_spacy_sample.spacy'
+dropout = '0.1'
+max_epochs = '10' 
+max_length = '2000'
+eval_frequency = '200'
+batch_size = '1000'
+
+
+Module : evaluate
+Arguments:
+model_path = './output_spacy/model-best/'
+test_path = './datasets/test_spacy_sample.spacy'
+output_file = './config_files/chosen_config.cfg'
+gpu_id = '-1'

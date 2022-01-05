@@ -1,0 +1,70 @@
+#General config for preprocesing data :
+
+
+Recipe : lemmatization
+
+Function : lemmatization
+Arguments:
+loc='./datasets/'
+dataset_id=1
+
+
+Recipe : stemming
+
+Function : stemming
+Arguments:
+loc='./datasets/'
+dataset_id=1
+
+
+Recipe : case_normalization
+
+Function : case_normalize
+Arguments:
+loc='./datasets/'
+dataset_id=1
+case='sentence'
+
+
+Recipe : remove_stopwords
+
+Function : remove_stopwords
+Arguments:
+loc='./datasets/'
+dataset_id=1
+
+
+Recipe : remove_punctuations
+
+Function : remove_punctuations
+Arguments:
+loc='./datasets/'
+dataset_id=1
+punct='!,.'
+
+
+Recipe : remove_misc
+
+Function : remove_misc
+Arguments:
+loc='./datasets/'
+dataset_id=1
+chars=['@', '\U0001F923']
+
+
+Recipe : use_regex
+
+Function : sub_regex
+Arguments:
+loc='./datasets/'
+dataset_id=1
+regex='office*'
+substitution=True
+substitute='Algo'
+
+
+
+
+
+
+
